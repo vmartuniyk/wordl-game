@@ -1,0 +1,45 @@
+html,body {
+    height: 100%;
+}
+body {
+    display: grid;
+    place-items: center;
+    background-color: #2d3748;
+    color: white;
+    font-family: sans-serif;
+}
+#game {
+
+}
+.row {
+    display: flex;
+}
+.tile {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: 1px solid currentColor;
+    font-size: 2rem;
+}
+.tile.absent{
+    background-color: #666;
+}
+
+.tile.present{
+    background-color: yellow;
+    color: black;
+}
+.tile.correct{
+    background-color: green;
+}
+output {
+    font-size: 1.3rem;
+    text-align: center;
+    display: block;
+    margin-top: 1.5rem;
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+}
