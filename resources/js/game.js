@@ -22,7 +22,7 @@ export default {
 
         init() {
             this.board = Array.from({ length: this.guessesAllow }, () => {
-                return Array.from({ length: this.theWord.length }, () => new Tile);
+                return Array.from({ length: this.theWord.length }, (item,index) => new Tile(index));
             });
         },
         onKeyPress(key){
@@ -68,9 +68,7 @@ export default {
                 return this.message = 'Invalid word';
             }
             //update tile colors
-            for (let tile of this.currentRow){
-                tile.updateStatus(this.currentGuess, this.theWord);
-            }
+            Tile.updateStatusesForRow(this.currentRow,this.theWord);
 
             if(this.currentGuess === this.theWord){
                 this.state = 'complete';
