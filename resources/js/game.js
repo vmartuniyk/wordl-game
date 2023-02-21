@@ -1,9 +1,9 @@
 import Tile from "./Tile";
-import words from './words';
+import {allWords, theWords} from './words';
 
 export default {
         guessesAllow: 3,
-        theWord: 'cat',
+        theWord: theWords[Math.floor(Math.random() * theWords.length)],
         currentRowIndex: 0,
         message: '',
         state: 'active', //active and complete
@@ -29,6 +29,7 @@ export default {
         },
 
         init() {
+            // alert(this.theWord);
             this.board = Array.from({ length: this.guessesAllow }, () => {
                 return Array.from({ length: this.theWord.length }, (item,index) => new Tile(index));
             });
@@ -79,7 +80,7 @@ export default {
             if(this.currentGuess.length < this.theWord.length){
                 return;
             }
-            if(! words.includes(this.currentGuess.toUpperCase())){
+            if(! allWords.includes(this.currentGuess.toUpperCase())){
                 this.errors = true;
                 return this.message = 'Invalid word';
             }

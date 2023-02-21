@@ -7,27 +7,31 @@ export  default class Tile {
     }
 
     static updateStatusesForRow(row, theWord){
-        for (let tile of row){
-            tile.updateStatus(theWord);
-        }
-        row.filter((tile) => {
-            return (
-                tile.status === 'present' &&
-                    row.some((t) => t.letter && t.status === 'correct')
-            );
-            }).forEach((tile) => (tile.status === 'absent'));
-    }
+        theWord = theWord.split("");
 
-    updateStatus(theWord){
-        if(! theWord.includes(this.letter)){
-            return this.status = 'absent';
-        }
-        if(this.letter === theWord[this.position]){
-            return this.status = 'correct';
-        }
-        this.status = 'present';
-    }
+        // check for correct letters...
+        for (let tile of row) {
+            if (theWord[tile.position] === tile.letter) {
+                tile.status = "correct";
 
+                theWord[tile.position] = null;
+            }
+        }
+
+        // check for present letters...
+        for (let tile of row.filter((tile) => !tile.status)) {
+            if (theWord.includes(tile.letter)) {
+                tile.status = "present";
+
+                theWord[tile.position] = null;
+            }
+        }
+
+        // anything that remains is absent...
+        for (let tile of row.filter((tile) => !tile.status)) {
+            tile.status = "absent";
+        }
+    }
     fill(key){
         this.letter = key.toLowerCase();
     }
