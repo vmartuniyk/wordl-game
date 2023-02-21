@@ -8,6 +8,14 @@ export default {
         message: '',
         state: 'active', //active and complete
         errors: false,
+
+        letters: [
+            'QWERTYUIOP'.split(''),
+            'ASDFGHJKL'.split(''),
+            ['Enter',...'ZXCVBNM'.split(''),'Backspace'],
+        ],
+
+
         get remainingGueses(){
            return  this.guessesAllow - this.currentRowIndex - 1
         },
