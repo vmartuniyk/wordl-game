@@ -144,7 +144,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  guessesAllow: 3,
+  guessesAllow: 4,
   theWord: _words__WEBPACK_IMPORTED_MODULE_1__.theWords[Math.floor(Math.random() * _words__WEBPACK_IMPORTED_MODULE_1__.theWords.length)],
   currentRowIndex: 0,
   message: '',
