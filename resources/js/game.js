@@ -2,7 +2,7 @@ import Tile from "./Tile";
 import {allWords, theWords} from './words';
 
 export default {
-        guessesAllow: 4,
+        guessesAllow: 5,
         theWord: theWords[Math.floor(Math.random() * theWords.length)],
         currentRowIndex: 0,
         message: '',

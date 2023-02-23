@@ -8,7 +8,6 @@ export let theWords = [
     "hat",
     "pig",
     "boy",
-    "yay",
     "can",
     "arm",
     "ran",
